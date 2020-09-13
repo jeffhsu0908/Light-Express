@@ -5,17 +5,16 @@
 
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
-import TextBox from '_components/textbox';
-import TextButton from '_components/text-button';
+import {TextInput, Button} from 'react-native-paper';
 
 export default class LoginPage extends Component {
   render() {
     return (
       <View>
-        <TextBox placeholder="Username" />
-        <TextBox placeholder="Password" />
-        <TextButton buttonText="Login" />
-        <TextButton buttonText="Sign Up" />
+        <TextInput label="Username" />
+        <TextInput label="Password" />
+        <Button icon="camera" mode="contained">Login</Button>
+        <Button icon="camera" mode="contained">Sign Up</Button>
       </View>
     );
   }
