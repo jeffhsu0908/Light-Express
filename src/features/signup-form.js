@@ -6,8 +6,8 @@
 import React, {useState, useEffect} from 'react';
 import {View} from 'react-native';
 import {TextInput, Button} from 'react-native-paper';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import {TextInputMask} from 'react-native-masked-text';
+import AddressForm from './address-form';
 
 function SignUpForm() {
   const [firstName, setFirstName] = useState('');
@@ -35,19 +35,21 @@ function SignUpForm() {
         label="Password"
         onChangeText={(value) => setPassword(value)}
       />
-      <TextInputMask
-        placeholder="Date of Birth"
-        type={'datetime'}
-        options={{
-          format: 'DD/MM/YYYY',
-        }}
-        value={date}
-        onChangeText={(value) => setDate(value)}
-      />
       <TextInput
-        label="Address"
-        onChangeText={(value) => setPassword(value)}
+      label="Date Of Birth"
+        render={props => (
+          <TextInputMask
+          {...props}
+            type={'datetime'}
+            options={{
+              format: 'DD/MM/YYYY',
+            }}
+            value={date}
+            onChangeText={(value) => setDate(value)}
+          />
+        )}
       />
+      <AddressForm />
       <Button mode="contained">Sign Up</Button>
     </View>
   );
