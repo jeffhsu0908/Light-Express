@@ -8,6 +8,7 @@ import LoginPage from '_features/login-page';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import SignUpForm from '_features/signup-form';
+import LandingPage from '_features/landing-page';
 
 const Stack = createStackNavigator();
 
@@ -15,16 +16,21 @@ export default class Router extends Component {
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator>
-          {/* <Stack.Screen
-            name="Login Page"
-            component={LoginPage}
-            options={{title: 'Login Page'}}
-          /> */}
+        <Stack.Navigator initialRouteName={"landingPage"}>
+        <Stack.Screen
+            name="landingPage"
+            component={LandingPage}
+            options={{title: 'Landing Page'}}
+          />
           <Stack.Screen
-            name="Sign Up Page"
+            name="loginPage"
+            component={LoginPage}
+            options={{title: 'Login'}}
+          />
+          <Stack.Screen
+            name="signUpForm"
             component={SignUpForm}
-            options={{title: 'Sign Up Page'}}
+            options={{title: 'Sign Up'}}
           />
         </Stack.Navigator>
       </NavigationContainer>
